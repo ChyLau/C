@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1395790010 source:c:\users\chy-ho\documents\github\c\struct_practice\main.c
+	<stdio.h>
+	<assert.h>
+	<stdlib.h>
+	<string.h>
+
