@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1396050013 source:c:\users\chy-ho\documents\github\c\29032014\big2\player.c
+	<stdlib.h>
+	"player.h"
+
+1396048990 c:\users\chy-ho\documents\github\c\29032014\big2\player.h
+
+1396050534 source:c:\users\chy-ho\documents\github\c\29032014\big2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"player.h"
+

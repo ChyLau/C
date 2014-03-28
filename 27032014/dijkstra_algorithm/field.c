@@ -29,5 +29,16 @@ void delete_field(Field_struct *field)
 
 void addCity(Field_struct *field, int x, int y)
 {
+    if (x < 0 || x >= 5 || y < 0 || y >= 0)
+    {
+        return;
+    }
+    field->map[x][y] = city;
+    city->next = field->mapList;
+    field->mapList = city;
+}
+
+City *getCity(Field_struct *field, int x, int y)
+{
 
 }
