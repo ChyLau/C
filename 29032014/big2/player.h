@@ -12,5 +12,6 @@ struct player {
 
 Player *new_player (char *name);
 void delete_player(Player *player);
+void addPlayer(int num);
 
 #endif // PLAYER_H_INCLUDED

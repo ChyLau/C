@@ -10,6 +10,19 @@ Player *new_player(char *name)
     player->losses = 0;
 }
 
+void addPlayer(int num)
+{
+      int i = 0;
+      char *name;
+      Player *curPlayer;
+
+      for(i = 0; i < num; i++)
+      {
+          scanf("%s", &name);
+          curPlayer = new_player(&name);
+      }
+}
+
 void delete_player(Player *player)
 {
     if (player != NULL)

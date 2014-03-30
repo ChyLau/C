@@ -1,14 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "player.h"
+#include "string.h"
 
 int main()
 {
-    char *name = "Chy";
-    Player *newPlayer;
-    newPlayer = new_player ("Chy");
-    newPlayer->losses = 10;
-    printf("%d %s", newPlayer->losses, newPlayer->name);
-    delete_player(newPlayer);
+      unsigned int num;
+
+      printf("Number of players: ");
+      scanf("%d", &num);
+      printf("Player names: ");
+
+      addPlayer(num);
+
     return 0;
 }
