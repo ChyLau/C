@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1396735566 source:c:\users\chy-ho\documents\github\c\tictactoe_onmyown\tictactoe\main.c
+	<stdio.h>
+	<stdlib.h>
+	"field.h"
+	"start.h"
+
+1396733984 c:\users\chy-ho\documents\github\c\tictactoe_onmyown\tictactoe\field.h
+
+1396735402 source:c:\users\chy-ho\documents\github\c\tictactoe_onmyown\tictactoe\field.c
+	"field.h"
+
+1396735767 c:\users\chy-ho\documents\github\c\tictactoe_onmyown\tictactoe\start.h
+
+1396735775 source:c:\users\chy-ho\documents\github\c\tictactoe_onmyown\tictactoe\start.c
+	"start.h"
+	"field.h"
+
