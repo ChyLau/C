@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include  "string.h"
 #include "field.h"
 #include "start.h"
 
 int main()
 {
-    void runGame();
-
+    srand(time(NULL));
+    runGame();
     return 0;
 }

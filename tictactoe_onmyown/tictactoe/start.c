@@ -12,7 +12,22 @@ void runGame()
 	Field *board;
     board  = new_field();
     print_board(board);
+
+    while(!gameOver)
+    {
+        if(side==NOUGHTS)
+        {
+            //get move from human, make move on board, change side
+
+        }
+        else
+        {
+            //get move from computer, make move on board, change side
+
+        }
+    }
+
     delete_field(board);
 
-    return board;
+    return 0;
 }

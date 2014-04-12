@@ -5,13 +5,21 @@ int main()
     FILE *file = fopen("text.txt", "r");
 
     int line = 0;
-    char input[512];
+    /*Read file character by character*/
+    char single;
 
-    while(fgets(input, 512, file))
+    while((single = fgetc(file)) != EOF)
     {
-        line++;
-        printf("Line:%d -> %s", line, input);
+        printf("%c", single);
     }
+
+//    char input[512];
+//
+//    while(fgets(input, 512, file))
+//    {
+//        line++;
+//        printf("Line:%d -> %s", line, input);
+//    }
 
     printf("\n\nEOF\n");
 
