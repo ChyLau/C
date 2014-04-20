@@ -2,12 +2,12 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="tictactoe" />
+		<Option title="tictactoe_vz" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin\Debug\tictactoe" prefix_auto="1" extension_auto="1" />
+				<Option output="bin\Debug\tictactoe_vz" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj\Debug\" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -16,7 +16,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin\Release\tictactoe" prefix_auto="1" extension_auto="1" />
+				<Option output="bin\Release\tictactoe_vz" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj\Release\" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -31,10 +31,18 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="field.c">
+		<Unit filename="board.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="field.h" />
+		<Unit filename="board.h" />
+		<Unit filename="check.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="check.h" />
+		<Unit filename="convert.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="convert.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

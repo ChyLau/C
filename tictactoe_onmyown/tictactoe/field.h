@@ -9,6 +9,7 @@ struct field{
 
 Field *new_field();
 void print_board(Field *field);
+int converttoArray();
 void delete_field (Field *field);
 
 #endif // FIELD_H_INCLUDED

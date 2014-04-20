@@ -1,32 +1,28 @@
+#include <stdio.h>
+#include  "string.h"
 #include "start.h"
 #include "field.h"
+#include "move.h"
 
 enum {NOUGHTS, CROSSES, BORDER, EMPTY};
 
 void runGame()
 {
     int gameOver = 0;
-	int side = NOUGHTS;
-	int lastmovemade = 0;
+    int side = NOUGHTS;
+    int lastmovemade = 0;
+    int i = 0;
 
-	Field *board;
+    Field *board;
     board  = new_field();
     print_board(board);
 
-    while(!gameOver)
+    int *a = converttoArray(board);
+
+    for(i = 0; i < 9; i++)
     {
-        if(side==NOUGHTS)
-        {
-            //get move from human, make move on board, change side
-
-        }
-        else
-        {
-            //get move from computer, make move on board, change side
-
-        }
+        printf("%d %d", *(a+i), i);
     }
-
     delete_field(board);
 
     return 0;
