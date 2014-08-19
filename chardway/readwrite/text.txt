@@ -1,0 +1,4 @@
+Hello This Is
+Some Text
+Saved In A .txt File
+40 C Cat
