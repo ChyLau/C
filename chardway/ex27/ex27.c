@@ -41,9 +41,11 @@ int main(int argc, char *argv[])
 {
     char from[] = "0123456789";
     int from_len = sizeof(from);
+    log_info("from_len: %d", from_len);
 
     char to[] = "0123456";
     int to_len = sizeof(to);
+    log_info("to_len: %d", to_len);
 
     debug("Copying '%s':%d to '%s':%d", from, from_len, to, to_len);
 
