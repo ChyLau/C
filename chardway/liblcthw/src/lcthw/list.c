@@ -1,7 +1,5 @@
-//#include <lcthw/list.h>
-#include "list.h"
-//#include <lcthw/dbg.h>
-#include "dbg.h"
+#include <lcthw/list.h>
+#include <lcthw/dbg.h>
 
 List *List_create()
 {
@@ -10,10 +8,8 @@ List *List_create()
 
 void List_destroy(List *list)
 {
-    LIST_FOREACH(list, first, next, cur)
-    {
-        if(cur->prev)
-        {
+    LIST_FOREACH(list, first, next, cur) {
+        if(cur->prev) {
             free(cur->prev);
         }
     }
@@ -22,19 +18,21 @@ void List_destroy(List *list)
     free(list);
 }
 
+
 void List_clear(List *list)
 {
-    LIST_FOREACH(list, first, next, cur)
-    {
+    LIST_FOREACH(list, first, next, cur) {
         free(cur->value);
     }
 }
+
 
 void List_clear_destroy(List *list)
 {
     List_clear(list);
     List_destroy(list);
 }
+
 
 void List_push(List *list, void *value)
 {
@@ -43,13 +41,10 @@ void List_push(List *list, void *value)
 
     node->value = value;
 
-    if(list->last == NULL)
-    {
+    if(list->last == NULL) {
         list->first = node;
         list->last = node;
-    }
-    else
-    {
+    } else {
         list->last->next = node;
         node->prev = list->last;
         list->last = node;
@@ -64,23 +59,20 @@ error:
 void *List_pop(List *list)
 {
     ListNode *node = list->last;
-    return node != NULL ?List_remove(list, node) : NULL;
+    return node != NULL ? List_remove(list, node) : NULL;
 }
 
-void List_unshift(List *list, void *value)
+void List_shift(List *list, void *value)
 {
     ListNode *node = calloc(1, sizeof(ListNode));
     check_mem(node);
 
     node->value = value;
 
-    if(list->first == NULL)
-    {
+    if(list->first == NULL) {
         list->first = node;
         list->last = node;
-    }
-    else
-    {
+    } else {
         node->next = list->first;
         list->first->prev = node;
         list->first = node;
@@ -92,7 +84,7 @@ error:
     return;
 }
 
-void *List_shift(List *list)
+void *List_unshift(List *list)
 {
     ListNode *node = list->first;
     return node != NULL ? List_remove(list, node) : NULL;
@@ -105,24 +97,14 @@ void *List_remove(List *list, ListNode *node)
     check(list->first && list->last, "List is empty.");
     check(node, "node can't be NULL");
 
-    if(node == list->first && node == list->last)
-    {
+    if(node == list->first && node == list->last) {
         list->first = NULL;
         list->last = NULL;
-    }
-    else if(node == list->first)
-    {
+    } else if(node == list->first) {
         list->first = node->next;
-        check(list->first != NULL, "Invalid list, somehow got a first that is NULL.");
-        list->first->prev = NULL;
-    }
-    else if(node == list->last)
-    {
+    } else if (node == list->last) {
         list->last = node->prev;
-        check(list->last != NULL, "Invalid list, somehow got a next that is NULL.");
-    }
-    else
-    {
+    } else {
         ListNode *after = node->next;
         ListNode *before = node->prev;
         after->prev = before;
@@ -136,3 +118,4 @@ void *List_remove(List *list, ListNode *node)
 error:
     return result;
 }
+
