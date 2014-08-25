@@ -1,0 +1,4 @@
+Test file to
+create a conflict
+
+test.txt is a file in feature.
