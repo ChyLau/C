@@ -1,8 +1,5 @@
-I insert some bullshit here.
+Test file to
+create a conflict
 
-
-
-
-
-
-abcdefg test.txt
+test.txt is a file in feature.
+EDIT: it worked.
