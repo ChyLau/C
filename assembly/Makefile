@@ -1,6 +1,6 @@
 #
 # Linux makefile
-# Use with make 
+# Use with make
 #
 
 .SUFFIXES:
@@ -8,7 +8,7 @@
 
 AS=nasm
 ASFLAGS= -f elf
-CFLAGS= 
+CFLAGS=
 CC=gcc
 CXX=g++
 CXXFLAGS=
