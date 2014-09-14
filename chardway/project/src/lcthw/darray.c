@@ -46,3 +46,30 @@ void DArray_clear(DArray *array)
         }
     }
 }
+
+static inline int DArray_resize(DArray *array, size_t newsize)
+{
+    array->max = newsize;
+    check(array->max > 0, "New size must be valid.");
+
+    void *contents = realloc(array->contents, array->max * sizeof(void *));
+    check_mem(contents);
+
+    array->contents = contents;
+
+    return 0;
+error:
+    return -1;
+}
+
+int DArray_expand(DArray *array)
+{
+    size_t old_max = array->max;
+    check(DArray_resize(array, array->max + array->expand_rate) == 0, "Failed to resize array to new size: %d", array->max + (int)array->expand_rate);
+
+    memset(array->contents + old_max, 0, array->expand_rate + 1);
+
+    return 0;
+error:
+    return -1;
+}

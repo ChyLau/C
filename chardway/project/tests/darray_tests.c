@@ -16,6 +16,15 @@ char *test_create()
     return NULL;
 }
 
+char *test_expand()
+{
+    int old_max = array->max;
+    DArray_expand(array);
+    mu_assert((unsigned int)array->max == old_max + array->expand_rate, "Wrong size after expand");
+
+    return NULL;
+}
+
 char *test_clear()
 {
     DArray_clear(array);
@@ -35,6 +44,7 @@ char *all_tests()
     mu_suite_start();
 
     mu_run_test(test_create);
+    mu_run_test(test_expand);
     mu_run_test(test_clear);
     mu_run_test(test_destroy);
 
