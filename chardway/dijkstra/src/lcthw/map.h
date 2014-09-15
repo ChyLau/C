@@ -4,6 +4,8 @@
 #include <lcthw/dbg.h>
 #include <stdlib.h>
 
+#define DATA_FILE "bin/data"
+
 struct City;
 
 typedef struct City {
@@ -22,5 +24,6 @@ typedef struct Map {
 City *City_new(char *name);
 void City_delete(City *city);
 City *City_find(City *map, char *name);
+Map *Map_create(FILE *data);
 
 #endif

@@ -37,3 +37,18 @@ City *City_find(City *map, char *name)
     return city;
 }
 */
+
+Map *Map_create()
+{
+    FILE *data = NULL;
+
+    data = fopen(DATA_FILE, "r");
+    check(data, "Failed to open database: %s", DATA_FILE);
+
+    fclose(data);
+
+    /*
+     * Still need to retreive data from file and link the cities together.
+     */
+    return map;
+}
