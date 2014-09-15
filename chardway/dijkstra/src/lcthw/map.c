@@ -16,18 +16,24 @@ City *City_new(char *name)
 
 error:
     if(city)
-        free(city->name);
-    free(city);
+    {
+        free(city);
+    }
     return NULL;
 }
 
 void City_delete(City *city)
 {
-    log_info("Entering City_delete function.");
     if(city)
     {
-        log_info("Entering if-statement.");
-        free(city->name);
         free(city);
     }
 }
+
+/*
+City *City_find(City *map, char *name)
+{
+
+    return city;
+}
+*/
