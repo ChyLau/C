@@ -4,9 +4,9 @@
 
 static List *list = NULL;
 static City *city = NULL;
-char *test1 = "test1 data";
-char *test2 = "test2 data";
-char *test3 = "test3 data";
+char *test1 = "A";
+char *test2 = "B";
+char *test3 = "C";
 
 
 char *test_create()
