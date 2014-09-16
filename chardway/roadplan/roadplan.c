@@ -1,4 +1,4 @@
-/* 
+/*
  * Student  : FIXME
  * Nummer   : FIXME
  * Opdracht : 5.1 + 5.2
@@ -115,8 +115,8 @@ static void print_city_roads (City *map)
 		printf ("Roads from city %s:\n", city->name);
 
 		for (road = city->roads; road != NULL; road=road->next) {
-			printf ("   to city %s", road->destination->name); 
-			printf (" (length %d)\n", road->length); 
+			printf ("   to city %s", road->destination->name);
+			printf (" (length %d)\n", road->length);
 		}
 	}
 }
@@ -127,7 +127,7 @@ static void find_shortest_roads (City *map)
 	/* FIXME  (Assignment 5.2)
          * While input and input != "0"
 	 *    Find pointer to specified city using find_city()
-	 *    Visit the roads originating from this city, 
+	 *    Visit the roads originating from this city,
          *    and find the road that has the shortest length
 	 *    Print the destination city and the road length.
 	 */

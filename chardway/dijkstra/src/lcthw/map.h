@@ -5,6 +5,7 @@
 #include <stdlib.h>
 
 #define DATA_FILE "bin/data"
+#define MAX_LENGTH 512
 
 struct City;
 
@@ -24,6 +25,7 @@ typedef struct Map {
 City *City_new(char *name);
 void City_delete(City *city);
 City *City_find(City *map, char *name);
-int Map_load();
+int City_number();
+int City_number_2();
 
 #endif

@@ -38,8 +38,35 @@ City *City_find(City *map, char *name)
     return city;
 }
 */
+Map *City_number_2()
+{
+    int num = 0;
+    int i = 0;
 
-int Map_load()
+    FILE *file = NULL;
+    file = fopen(DATA_FILE, "r");
+    check(file, "Failed to open database: %s", DATA_FILE);
+
+    int rc = fscanf(file, "%d", &num);
+    log_info("Number of cities: %d", num);
+    log_info("Return value fscanf: %d", rc);
+
+    for(i = 0; i < num; i++)
+    {
+        char city_name[MAX_LENGTH];
+
+    }
+
+    fclose(file);
+
+    return num;
+error:
+    if(file)
+        fclose(file);
+    return 0;
+}
+
+int City_number()
 {
     FILE *file = NULL;
     char c;
@@ -54,10 +81,10 @@ int Map_load()
     log_info("Number of cities: %d", i);
     fclose(file);
 
-    return 0;
+    return i;
 
 error:
     if(file)
         fclose(file);
-    return -1;
+    return 0;
 }
