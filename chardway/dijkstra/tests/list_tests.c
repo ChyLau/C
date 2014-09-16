@@ -3,7 +3,7 @@
 #include <assert.h>
 
 static List *list = NULL;
-static City *city = NULL;
+/*static City *city = NULL;*/
 char *test1 = "A";
 char *test2 = "B";
 char *test3 = "C";
@@ -24,20 +24,37 @@ char *test_destroy()
     return NULL;
 }
 
-char *test_push()
+char *test_read()
 {
-    List_push(list, test1);
-    mu_assert(List_last(list) == test1, "Wrong last value.");
-
-    List_push(list, test2);
-    mu_assert(List_last(list) == test2, "Wrong last value.");
-
-    List_push(list, test3);
+    List_city(list);
+    mu_assert(List_first(list) == test1, "Wrong first value.");
     mu_assert(List_last(list) == test3, "Wrong last value.");
 
     return NULL;
 }
 
+/*
+char *test_push()
+{
+    List_push(list, test1);
+    mu_assert(List_last(list) == test1, "Wrong last value.");
+    mu_assert(list->count == 1, "Wrong count.");
+
+    List_push(list, test2);
+    mu_assert(List_last(list) == test2, "Wrong last value.");
+    mu_assert(list->count == 2, "Wrong count.");
+
+    List_push(list, test3);
+    mu_assert(List_last(list) == test3, "Wrong last value.");
+    mu_assert(list->count == 3, "Wrong count.");
+
+    List_push(list, test3);
+
+    return NULL;
+}
+*/
+
+/*
 char *test_find()
 {
     city = City_find(list, test1);
@@ -51,14 +68,16 @@ char *test_find()
 
     return NULL;
 }
+*/
 
 char *all_tests()
 {
     mu_suite_start();
 
     mu_run_test(test_create);
-    mu_run_test(test_push);
-    mu_run_test(test_find);
+    mu_run_test(test_read);
+    /*mu_run_test(test_push);*/
+    /*mu_run_test(test_find);*/
     mu_run_test(test_destroy);
 
     return NULL;

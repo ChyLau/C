@@ -4,7 +4,7 @@
 #include <lcthw/dbg.h>
 #include <stdlib.h>
 
-#define DATA_FILE "bin/data"
+#define DB_FILE "bin/data"
 #define MAX_LENGTH 512
 
 struct City;
@@ -26,9 +26,11 @@ typedef struct List {
 List *List_create();
 void List_destroy(List *list);
 void List_push(List *list, char *name);
-City *City_find(List *list, char *name);
+List *List_city();
+/*City *City_find(List *list, char *name);*/
 
 #define List_last(A) ((A)->last != NULL ? (A)->last->name : NULL)
+#define List_first(A) ((A)->first != NULL ? (A)->first->name : NULL)
 
 #define LIST_FOREACH(L, S, M, V) City *_city = NULL;\
     City *V = NULL;\
