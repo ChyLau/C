@@ -1,5 +1,6 @@
-#include <lcthw/city.h>
+#include <lcthw/map.h>
 #include <lcthw/dbg.h>
+#include <ctype.h>
 
 City *City_new(char *name)
 {
@@ -38,17 +39,25 @@ City *City_find(City *map, char *name)
 }
 */
 
-Map *Map_create()
+int Map_load()
 {
-    FILE *data = NULL;
+    FILE *file = NULL;
+    char c;
 
-    data = fopen(DATA_FILE, "r");
-    check(data, "Failed to open database: %s", DATA_FILE);
+    file = fopen(DATA_FILE, "r");
+    check(file, "Failed to open database: %s", DATA_FILE);
 
-    fclose(data);
+    c = fgetc(file);
+    check(isdigit(c) != 0, "Read char is not a digit.");
+    int i = c - '0';
 
-    /*
-     * Still need to retreive data from file and link the cities together.
-     */
-    return map;
+    log_info("Number of cities: %d", i);
+    fclose(file);
+
+    return 0;
+
+error:
+    if(file)
+        fclose(file);
+    return -1;
 }

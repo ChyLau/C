@@ -1,5 +1,5 @@
-#ifndef _lcthw_City_h
-#define _lcthw_City_h
+#ifndef _lcthw_map_h
+#define _lcthw_map_h
 
 #include <lcthw/dbg.h>
 #include <stdlib.h>
@@ -24,6 +24,6 @@ typedef struct Map {
 City *City_new(char *name);
 void City_delete(City *city);
 City *City_find(City *map, char *name);
-Map *Map_create(FILE *data);
+int Map_load();
 
 #endif

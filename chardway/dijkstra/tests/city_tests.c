@@ -1,5 +1,5 @@
 #include "minunit.h"
-#include <lcthw/city.h>
+#include <lcthw/map.h>
 #include <assert.h>
 
 static City *city = NULL;
