@@ -8,7 +8,7 @@ List *List_create()
 
 void List_destroy(List *list)
 {
-    LIST_FOR_EACH(list, first, next, cur)
+    LIST_FOREACH(list, first, next, cur)
     {
         if(cur->prev)
         {
@@ -24,6 +24,7 @@ void List_push(List *list, char *name)
 {
     City *city = calloc(1, sizeof(City));
     check_mem(city);
+
     city->name = name;
 
     if(list->last == NULL)
@@ -41,8 +42,6 @@ void List_push(List *list, char *name)
     list->count++;
 
 error:
-    if(city)
-        free(city);
     return;
 }
 
@@ -50,7 +49,7 @@ City *City_find(List *list, char *name)
 {
     City *city = calloc(1, sizeof(City));
 
-    LIST_FOR_EACH(list, first, next, cur)
+    LIST_FOREACH(list, first, next, cur)
     {
         if(cur->name == name)
         {
@@ -64,5 +63,5 @@ City *City_find(List *list, char *name)
 error:
     if(city)
         free(city);
-    return;
+    return NULL;
 }

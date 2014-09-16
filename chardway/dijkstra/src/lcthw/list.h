@@ -28,8 +28,10 @@ void List_destroy(List *list);
 void List_push(List *list, char *name);
 City *City_find(List *list, char *name);
 
-#define LIST_FOREACH(L, S, M, V) ListNode *_node = NULL;\
-    ListNode *V = NULL;\
-    for(V = _node = L->S; _node != NULL; V = _node = _node->M)
+#define List_last(A) ((A)->last != NULL ? (A)->last->name : NULL)
+
+#define LIST_FOREACH(L, S, M, V) City *_city = NULL;\
+    City *V = NULL;\
+    for(V = _city = L->S; _city != NULL; V = _city = _city->M)
 
 #endif
