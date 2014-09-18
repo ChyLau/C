@@ -22,12 +22,22 @@ typedef struct List {
     int count;
 } List;
 
+struct Road;
+
+typedef struct Road {
+    City *origin;
+    City *destination;
+    unsigned length;
+    struct Road *next;
+} Road;
+
 
 List *List_create();
 void List_destroy(List *list);
 void List_push(List *list, char *name);
 List *List_city(List *list);
 void List_print(List *list);
+Road *Road_create(City *origin, City *destination, unsigned length);
 
 
 #define List_last(A) ((A)->last != NULL ? (A)->last->name : NULL)

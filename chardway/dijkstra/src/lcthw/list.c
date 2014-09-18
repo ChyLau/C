@@ -97,3 +97,20 @@ error:
         fclose(db);
     return NULL;
 }
+
+Road *Road_create(City *origin, City *destination, unsigned length)
+{
+    Road *road = calloc(1, sizeof(Road));
+    check_mem(road);
+    road->origin = origin;
+    road->destination = destination;
+    road->length = length;
+   // road->next = NULL;
+
+    return road;
+
+error:
+    if(road)
+        free(road);
+    return NULL;
+}

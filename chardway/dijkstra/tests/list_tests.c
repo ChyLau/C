@@ -3,6 +3,7 @@
 #include <assert.h>
 
 static List *list = NULL;
+static Road *road = NULL;
 /*static City *city = NULL;*/
 char *test1 = "A";
 char *test2 = "B";
@@ -49,6 +50,13 @@ char *test_push()
     mu_assert(list->count == 3, "Wrong count.");
 
     List_push(list, test3);
+
+    return NULL;
+}
+
+char *test_road_create()
+{
+    road = Road_create()
 
     return NULL;
 }
