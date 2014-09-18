@@ -37,12 +37,8 @@ static inline int City_find(List *list, char *name)
 void List_push(List *list, char *name)
 {
     City *city = calloc(1, sizeof(City));
-    check_mem(city);
 
     city->name = name;
-    log_info("Push name: %s", city->name);
-
-    //check(City_find(list, city->name) != 0, "City %s already exists.", city->name);
 
     if(list->last == NULL)
     {
@@ -57,9 +53,6 @@ void List_push(List *list, char *name)
     }
 
     list->count++;
-
-error:
-    return;
 }
 
 static FILE *db_open(const char *path, const char *mode)
@@ -92,10 +85,9 @@ List *List_city(List *list)
     {
         check((read = getline(&city_name, &len, db)) != -1, "Failed to read line.");
         log_info("City name: %s", city_name);
+        log_info("City length: %zu", strlen(city_name));
         List_push(list, city_name);
     }
-
-    free(city_name);
 
     db_close(db);
 
@@ -103,7 +95,5 @@ List *List_city(List *list)
 error:
     if(db)
         fclose(db);
-    if(city_name)
-        free(city_name);
     return NULL;
 }

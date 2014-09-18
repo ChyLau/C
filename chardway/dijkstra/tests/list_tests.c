@@ -27,13 +27,13 @@ char *test_destroy()
 char *test_read()
 {
     List_city(list);
-    mu_assert(List_first(list) == test1, "Wrong first value.");
-    mu_assert(List_last(list) == test3, "Wrong last value.");
-
+    mu_assert(list->count == 3, "Wrong count.");
+    log_info("test1 length: %zu", strlen(test1));
+    log_info("test2 length: %zu", strlen(test2));
+    log_info("test3 length: %zu", strlen(test3));
     return NULL;
 }
 
-/*
 char *test_push()
 {
     List_push(list, test1);
@@ -52,7 +52,6 @@ char *test_push()
 
     return NULL;
 }
-*/
 
 /*
 char *test_find()
@@ -76,8 +75,7 @@ char *all_tests()
 
     mu_run_test(test_create);
     mu_run_test(test_read);
-    /*mu_run_test(test_push);*/
-    /*mu_run_test(test_find);*/
+    //mu_run_test(test_push);
     mu_run_test(test_destroy);
 
     return NULL;
