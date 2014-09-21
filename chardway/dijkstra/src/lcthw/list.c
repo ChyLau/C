@@ -120,7 +120,7 @@ Road *Road_create(City *origin, City *destination, unsigned length)
     road->origin = origin;
     road->destination = destination;
     road->length = length;
-   // road->next = NULL;
+    road->next = NULL;
 
     return road;
 

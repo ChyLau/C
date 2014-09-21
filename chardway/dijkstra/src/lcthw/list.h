@@ -8,12 +8,13 @@
 #define MAX_LENGTH 512
 
 struct City;
+struct Road;
 
 typedef struct City {
     char *name;
     struct City *next;
     struct City *prev;
-    /*Road *roads;*/
+    struct Road *roads;
 } City;
 
 typedef struct List {
@@ -22,7 +23,6 @@ typedef struct List {
     int count;
 } List;
 
-struct Road;
 
 typedef struct Road {
     City *origin;
