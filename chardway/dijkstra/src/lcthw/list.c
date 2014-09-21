@@ -22,27 +22,12 @@ void List_destroy(List *list)
 
 static inline City *City_find(List *list, char *name)
 {
-    log_info("Entering City_find.");
-
-    /*
     LIST_FOREACH(list, first, next, cur)
     {
-        log_info("cur name: %s", cur->name);
         if(strcmp(cur->name, name) == 0)
         {
             return cur;
         }
-    }
-    */
-
-    City *cur = list->first;
-
-    while(cur != NULL)
-    {
-        if(strcmp(cur->name, name) == 0)
-            return cur;
-
-        cur = cur->next;
     }
 
     return NULL;
@@ -51,38 +36,27 @@ static inline City *City_find(List *list, char *name)
 void List_push(List *list, char *name)
 {
     City *city = calloc(1, sizeof(City));
-    //check_mem(city);
+    check_mem(city);
 
     city->name = name;
-    log_info("List_push name: %s", city->name);
-    //check(City_find(list, city->name) == NULL, "City  %s already exists.", city->name);
+    check(City_find(list, city->name) == NULL, "City  %s already exists.", city->name);
 
     if(list->last == NULL)
     {
-        log_info("Add first city: %s", city->name);
         list->first = city;
         list->last = city;
     }
     else
     {
-        log_info("Add second and more: %s", city->name);
-        log_info("First city else: %s", list->first->name);
-        log_info("Last city else: %s", list->last->name);
         list->last->next = city;
-        log_info("list->last->next->name: %s", list->last->next->name);
         city->prev = list->last;
-        log_info("city->prev->name: %s", city->prev->name);
         list->last = city;
     }
 
-    log_info("First city: %s", list->first->name);
-    log_info("Last city: %s", list->last->name);
-
     list->count++;
-    log_info("Count: %d", list->count);
-//error:
-  //  log_info("Error");
-    //return;
+
+error:
+    return;
 }
 
 static FILE *db_open(const char *path, const char *mode)
@@ -97,6 +71,7 @@ static void db_close(FILE *db)
 
 List *List_city(List *list)
 {
+    /*
     FILE *db = NULL;
     int i = 0;
     int num_cities = 0;
@@ -116,16 +91,26 @@ List *List_city(List *list)
         log_info("List_city first: %s", list->first->name);
         log_info("List_city last: %s", list->last->name);
     }
+    */
 
-    db_close(db);
+    char *city1 = "A";
+    char *city2 = "B";
+    char *city3 = "C";
+
+    List_push(list, city1);
+    List_push(list, city2);
+    List_push(list, city3);
+
+    //db_close(db);
 
     return list;
+
+    /*
 error:
     if(db)
         fclose(db);
     return NULL;
-
-    return list;
+    */
 }
 
 Road *Road_create(City *origin, City *destination, unsigned length)
