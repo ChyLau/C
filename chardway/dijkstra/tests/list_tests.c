@@ -29,9 +29,8 @@ char *test_read()
 {
     List_city(list);
     mu_assert(list->count == 3, "Wrong count.");
-    log_info("test1 length: %zu", strlen(test1));
-    log_info("test2 length: %zu", strlen(test2));
-    log_info("test3 length: %zu", strlen(test3));
+    log_info("First city: %s", List_first(list));
+    log_info("Last city: %s", List_last(list));
     return NULL;
 }
 
@@ -54,12 +53,14 @@ char *test_push()
     return NULL;
 }
 
+/*
 char *test_road_create()
 {
-    road = Road_create()
+    road = Road_create();
 
     return NULL;
 }
+*/
 
 /*
 char *test_find()
