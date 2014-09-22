@@ -28,7 +28,7 @@ char *test_destroy()
 char *test_read()
 {
     List_city(list);
-    mu_assert(list->count == 3, "Wrong count.");
+    mu_assert(list->count == 4, "Wrong count.");
     log_info("First city: %s", List_first(list));
     log_info("Last city: %s", List_last(list));
     return NULL;
@@ -49,6 +49,13 @@ char *test_push()
     mu_assert(list->count == 3, "Wrong count.");
 
     List_push(list, test3);
+
+    return NULL;
+}
+
+char *test_road_set()
+{
+    Road_set();
 
     return NULL;
 }
@@ -84,6 +91,7 @@ char *all_tests()
 
     mu_run_test(test_create);
     mu_run_test(test_read);
+    mu_run_test(test_road_set);
     //mu_run_test(test_push);
     mu_run_test(test_destroy);
 

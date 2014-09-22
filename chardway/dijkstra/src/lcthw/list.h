@@ -38,7 +38,7 @@ void List_push(List *list, char *name);
 List *List_city(List *list);
 void List_print(List *list);
 Road *Road_create(City *origin, City *destination, unsigned length);
-
+void Road_set();
 
 #define List_last(A) ((A)->last != NULL ? (A)->last->name : NULL)
 #define List_first(A) ((A)->first != NULL ? (A)->first->name : NULL)

@@ -96,10 +96,12 @@ List *List_city(List *list)
     char *city1 = "A";
     char *city2 = "B";
     char *city3 = "C";
+    char *city4 = "D";
 
     List_push(list, city1);
     List_push(list, city2);
     List_push(list, city3);
+    List_push(list, city4);
 
     //db_close(db);
 
@@ -128,4 +130,38 @@ error:
     if(road)
         free(road);
     return NULL;
+}
+
+void Road_set()
+{
+    FILE *db = NULL;
+    int i = 0;
+    int j = 0;
+    int num_roads = 0;
+    City *origin = NULL;
+    City *destination = NULL;
+    int length = 0;
+    char db_char;
+
+    db = db_open(DB_FILE, "r");
+    check(db, "Failed to open database: %s", DB_FILE);
+
+    fscanf(db, "%d", &num_roads);
+    log_info("Number of roads: %d", num_roads);
+
+    for(i = 0; i < num_roads; i++)
+    {
+        for(j = 0; j < 3; j++)
+        {
+            db_char = fgetc(db);
+            log_info("Char from data file: %c", db_char);
+        }
+
+    }
+
+    fclose(db);
+error:
+    if(db)
+        fclose(db);
+    return;
 }
