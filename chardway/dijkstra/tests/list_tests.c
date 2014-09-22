@@ -53,12 +53,14 @@ char *test_push()
     return NULL;
 }
 
+/*
 char *test_road_set()
 {
     Road_set();
 
     return NULL;
 }
+*/
 
 /*
 char *test_road_create()
@@ -91,7 +93,7 @@ char *all_tests()
 
     mu_run_test(test_create);
     mu_run_test(test_read);
-    mu_run_test(test_road_set);
+    //mu_run_test(test_road_set);
     //mu_run_test(test_push);
     mu_run_test(test_destroy);
 
