@@ -1,17 +1,17 @@
 /* USB Debug Channel Example for Teensy USB Development Board
  * http://www.pjrc.com/teensy/
  * Copyright (c) 2008 PJRC.COM, LLC
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -93,7 +93,7 @@ static const uint8_t PROGMEM endpoint_config_table[] = {
 // spec and relevant portions of any USB class specifications!
 
 
-static uint8_t PROGMEM device_descriptor[] = {
+static const uint8_t PROGMEM device_descriptor[] = {
 	18,					// bLength
 	1,					// bDescriptorType
 	0x00, 0x02,				// bcdUSB
@@ -110,7 +110,7 @@ static uint8_t PROGMEM device_descriptor[] = {
 	1					// bNumConfigurations
 };
 
-static uint8_t PROGMEM hid_report_descriptor[] = {
+static const uint8_t PROGMEM hid_report_descriptor[] = {
 	0x06, 0x31, 0xFF,			// Usage Page 0xFF31 (vendor defined)
 	0x09, 0x74,				// Usage 0x74
 	0xA1, 0x53,				// Collection 0x53
@@ -125,7 +125,7 @@ static uint8_t PROGMEM hid_report_descriptor[] = {
 
 #define CONFIG1_DESC_SIZE (9+9+9+7)
 #define HID_DESC2_OFFSET  (9+9)
-static uint8_t PROGMEM config1_descriptor[CONFIG1_DESC_SIZE] = {
+static const uint8_t PROGMEM config1_descriptor[CONFIG1_DESC_SIZE] = {
 	// configuration descriptor, USB spec 9.6.3, page 264-266, Table 9-10
 	9, 					// bLength;
 	2,					// bDescriptorType;
@@ -172,17 +172,17 @@ struct usb_string_descriptor_struct {
 	uint8_t bDescriptorType;
 	int16_t wString[];
 };
-static struct usb_string_descriptor_struct PROGMEM string0 = {
+static const struct usb_string_descriptor_struct PROGMEM string0 = {
 	4,
 	3,
 	{0x0409}
 };
-static struct usb_string_descriptor_struct PROGMEM string1 = {
+static const struct usb_string_descriptor_struct PROGMEM string1 = {
 	sizeof(STR_MANUFACTURER),
 	3,
 	STR_MANUFACTURER
 };
-static struct usb_string_descriptor_struct PROGMEM string2 = {
+static const struct usb_string_descriptor_struct PROGMEM string2 = {
 	sizeof(STR_PRODUCT),
 	3,
 	STR_PRODUCT
@@ -195,7 +195,7 @@ static struct descriptor_list_struct {
 	uint16_t	wIndex;
 	const uint8_t	*addr;
 	uint8_t		length;
-} PROGMEM descriptor_list[] = {
+} const PROGMEM descriptor_list[] = {
 	{0x0100, 0x0000, device_descriptor, sizeof(device_descriptor)},
 	{0x0200, 0x0000, config1_descriptor, sizeof(config1_descriptor)},
 	{0x2200, 0x0000, hid_report_descriptor, sizeof(hid_report_descriptor)},
